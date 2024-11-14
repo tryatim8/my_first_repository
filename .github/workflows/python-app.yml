@@ -16,3 +16,10 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Build:
+    runs-on: python:3.12
+    steps:
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+      - name: Install requirements
+        run: pip install -r module_30_ci_linters/practice/requirements.txt
