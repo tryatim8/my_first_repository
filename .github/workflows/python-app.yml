@@ -22,4 +22,6 @@ jobs:
       - name: Upgrade pip
         run: pip install --upgrade pip
       - name: Install requirements
-        run: pip install -r my_first_repository/module_30_ci_linters/practice/requirements.txt
+        with:
+          path: module_30_ci_linters/practice/
+          run: pip install -r requirements.txt
