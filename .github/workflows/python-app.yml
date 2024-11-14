@@ -22,4 +22,4 @@ jobs:
       - name: Upgrade pip
         run: pip install --upgrade pip
       - name: Install requirements
-        run: pip install -r module_30_ci_linters/practice/requirements.txt
+        run: pip install -r my_first_repository/module_30_ci_linters/practice/requirements.txt
