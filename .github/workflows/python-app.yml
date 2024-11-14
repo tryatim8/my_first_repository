@@ -17,7 +17,8 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Build:
-    runs-on: python:3.12
+    runs-on: ubuntu-latest
+    container: python:3.12
     steps:
       - name: Upgrade pip
         run: pip install --upgrade pip
