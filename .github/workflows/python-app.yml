@@ -18,7 +18,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Build:
     runs-on: ubuntu-latest
-    container: python:3.12
     steps:
       - name: Upgrade pip
         run: pip install --upgrade pip
