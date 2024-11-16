@@ -1,7 +1,8 @@
 from typing import Any
 
 from sqlalchemy import Column, Integer, String, desc
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.ext.asyncio import (AsyncSession,
+                                    async_sessionmaker, create_async_engine)
 from sqlalchemy.future import select
 from sqlalchemy.orm import declarative_base
 
@@ -30,7 +31,9 @@ class Recipe(Base):
     async def recipe(cls, recipe_id):
         """Возвращает запись рецепта и прибавляет к нему 1 просмотр"""
         res = (
-            await async_session.execute(select(Recipe).filter(Recipe.id == recipe_id))
+            await async_session.execute(
+                select(Recipe).filter(Recipe.id == recipe_id)
+            )
         ).scalar()
         res.views += 1
         await async_session.commit()
@@ -40,7 +43,9 @@ class Recipe(Base):
     async def recipes(cls):
         """Возвращает список записей рецептов с сортировкой по просмотрам"""
         res = (
-            (await async_session.execute(select(Recipe).order_by(desc(Recipe.views))))
+            (await async_session.execute(
+                select(Recipe).order_by(desc(Recipe.views))
+            ))
             .scalars()
             .all()
         )
