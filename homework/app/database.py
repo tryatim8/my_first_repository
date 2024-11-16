@@ -3,12 +3,12 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, Asyn
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.future import select
 
-DATABASE_URL = 'sqlite+aiosqlite:///./hw.db'
+DATABASE_URL = 'sqlite+aiosqlite:///homework/app/hw.db'
 
 Base = declarative_base()
 engine = create_async_engine(DATABASE_URL, echo=True)
-async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
-async_session = async_session()
+AsyncSessionmaker = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+async_session = AsyncSessionmaker()
 
 
 class Recipe(Base):

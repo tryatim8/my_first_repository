@@ -21,7 +21,7 @@ def create_app(_lifespan=None):
     return FastAPI(lifespan=lifespan)
 
 
-def connect_routes(app: FastAPI):
+def connect_routes(app: FastAPI, async_session):
     @app.get('/')
     async def root():
         return {'message': 'hello world'}
@@ -50,5 +50,5 @@ def connect_routes(app: FastAPI):
 
 if __name__ == '__main__':
     app = create_app(_lifespan=lifespan)
-    connect_routes(app=app)
+    connect_routes(app=app, async_session=async_session)
     uvicorn.run(app, host='127.0.0.1', port=5000)
