@@ -1,8 +1,7 @@
 from typing import Any
 
 from sqlalchemy import Column, Integer, String, desc
-from sqlalchemy.ext.asyncio import (AsyncSession, async_sessionmaker,
-                                    create_async_engine)
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.future import select
 from sqlalchemy.orm import declarative_base
 
