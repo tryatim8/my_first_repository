@@ -2,10 +2,11 @@ from sqlalchemy import Column, Integer, String, desc
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.future import select
+from typing import Any
 
 DATABASE_URL = 'sqlite+aiosqlite:///homework/app/hw.db'
 
-Base = declarative_base()
+Base: Any = declarative_base()
 engine = create_async_engine(DATABASE_URL, echo=True)
 AsyncSessionmaker = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 async_session = AsyncSessionmaker()
