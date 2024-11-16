@@ -1,8 +1,8 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from homework.app.main import connect_routes, lifespan, create_app
 from homework.app.database import async_session
+from homework.app.main import connect_routes, create_app, lifespan
 
 
 @pytest.fixture
